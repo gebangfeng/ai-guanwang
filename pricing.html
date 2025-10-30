@@ -30,6 +30,70 @@
             background: linear-gradient(135deg, #ffeaa7 0%, #fdcb6e 100%);
             border: 3px dashed #f39c12;
         }
+
+        /* 标签导航样式 */
+        .pricing-tabs {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin: 2rem 0;
+            padding: 0.5rem;
+            background: #f8fafc;
+            border-radius: 12px;
+        }
+
+        .pricing-tab {
+            padding: 0.75rem 1.5rem;
+            border: 2px solid transparent;
+            border-radius: 8px;
+            background: white;
+            cursor: pointer;
+            font-weight: 600;
+            color: #64748b;
+            transition: all 0.3s ease;
+        }
+
+        .pricing-tab:hover {
+            color: var(--primary-color);
+            border-color: var(--primary-color);
+        }
+
+        .pricing-tab.active {
+            background: var(--gradient);
+            color: white;
+            box-shadow: 0 4px 15px rgba(99, 102, 241, 0.3);
+        }
+
+        .pricing-content {
+            display: none;
+        }
+
+        .pricing-content.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .pricing-tabs {
+                gap: 0.5rem;
+            }
+            .pricing-tab {
+                padding: 0.5rem 1rem;
+                font-size: 0.9rem;
+            }
+        }
     </style>
 </head>
 <body>
@@ -57,13 +121,21 @@
     </section>
 
     <div class="container">
-        <!-- GPT Plus系列 -->
-        <section class="product-category">
-            <div class="category-header scroll-reveal">
-                <h2>🤖 GPT Plus 订阅方案</h2>
-                <p>支持GPT-5、GPT-4o、o3等最新模型，50次/3小时访问频率</p>
-            </div>
+        <!-- 标签导航 -->
+        <div class="pricing-tabs">
+            <button class="pricing-tab active" data-tab="gpt-plus">🤖 GPT Plus</button>
+            <button class="pricing-tab" data-tab="claude-pro">🧠 Claude Pro</button>
+            <button class="pricing-tab" data-tab="claude-max">⚡ Claude Max</button>
+            <button class="pricing-tab" data-tab="dual">🎁 双会员</button>
+            <button class="pricing-tab" data-tab="addon">⛽ 加油包</button>
+        </div>
 
+        <!-- GPT Plus内容 -->
+        <div class="pricing-content active" id="gpt-plus">
+            <div style="text-align: center; margin-bottom: 2rem;">
+                <h2 style="font-size: 2rem; margin-bottom: 0.5rem;">🤖 GPT Plus 订阅方案</h2>
+                <p style="color: var(--text-light);">支持GPT-5、GPT-4o、o3等最新模型，50次/3小时访问频率</p>
+            </div>
             <div class="pricing-grid" style="grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));">
                 <!-- GPT Plus 日卡 -->
                 <div class="pricing-card scroll-reveal">
@@ -157,15 +229,14 @@
                     <a href="https://chat.zh-ai.cc" target="_blank" class="btn btn-primary" style="width: 100%; text-align: center;">立即购买</a>
                 </div>
             </div>
-        </section>
+        </div>
 
-        <!-- Claude Pro系列 -->
-        <section class="product-category">
-            <div class="category-header scroll-reveal" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
-                <h2>🧠 Claude Pro 订阅方案</h2>
-                <p>支持Claude 4.5 Sonnet、Opus等模型，50次/5小时访问频率</p>
+        <!-- Claude Pro内容 -->
+        <div class="pricing-content" id="claude-pro">
+            <div style="text-align: center; margin-bottom: 2rem;">
+                <h2 style="font-size: 2rem; margin-bottom: 0.5rem;">🧠 Claude Pro 订阅方案</h2>
+                <p style="color: var(--text-light);">支持Claude 4.5 Sonnet、Opus等模型，50次/5小时访问频率</p>
             </div>
-
             <div class="pricing-grid" style="grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));">
                 <!-- Claude Pro 日卡 -->
                 <div class="pricing-card scroll-reveal">
@@ -251,34 +322,15 @@
                     </ul>
                     <a href="https://chat.zh-ai.cc" target="_blank" class="btn btn-primary" style="width: 100%; text-align: center;">立即购买</a>
                 </div>
-
-                <!-- Claude Pro 加油包 -->
-                <div class="pricing-card addon-card scroll-reveal">
-                    <h3>Pro 加油包</h3>
-                    <div class="price">
-                        ¥8.9
-                        <span class="price-period">/次</span>
-                    </div>
-                    <p style="color: var(--text-dark); margin: 1rem 0; font-weight: 500;">次数重置</p>
-                    <ul class="features-list">
-                        <li>立即重置访问次数</li>
-                        <li>达到频率限制时使用</li>
-                        <li>提示"50次限制"可用</li>
-                        <li>使用后次数清零重置</li>
-                        <li style="color: #f39c12; font-weight: 600;">✓ 可开发票</li>
-                    </ul>
-                    <a href="https://chat.zh-ai.cc" target="_blank" class="btn btn-secondary" style="width: 100%; text-align: center; background-color: #f39c12; color: white; border: none;">购买加油包</a>
-                </div>
             </div>
-        </section>
+        </div>
 
-        <!-- Claude Max系列 -->
-        <section class="product-category">
-            <div class="category-header scroll-reveal" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">
-                <h2>⚡ Claude Max 订阅方案</h2>
-                <p>3倍Pro使用次数，支持深度搜索、思考模式，单次输出容量更大</p>
+        <!-- Claude Max内容 -->
+        <div class="pricing-content" id="claude-max">
+            <div style="text-align: center; margin-bottom: 2rem;">
+                <h2 style="font-size: 2rem; margin-bottom: 0.5rem;">⚡ Claude Max 订阅方案</h2>
+                <p style="color: var(--text-light);">3倍Pro使用次数，支持深度搜索、思考模式，单次输出容量更大</p>
             </div>
-
             <div class="pricing-grid" style="grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));">
                 <!-- Claude Max 日卡 -->
                 <div class="pricing-card scroll-reveal">
@@ -344,34 +396,15 @@
                     </ul>
                     <a href="https://chat.zh-ai.cc" target="_blank" class="btn btn-primary" style="width: 100%; text-align: center;">立即购买</a>
                 </div>
-
-                <!-- Claude Max 加油包 -->
-                <div class="pricing-card addon-card scroll-reveal">
-                    <h3>Max 加油包</h3>
-                    <div class="price">
-                        ¥22
-                        <span class="price-period">/次</span>
-                    </div>
-                    <p style="color: var(--text-dark); margin: 1rem 0; font-weight: 500;">次数重置</p>
-                    <ul class="features-list">
-                        <li>立即重置访问次数</li>
-                        <li>达到频率限制时使用</li>
-                        <li>提示"总频率限制"可用</li>
-                        <li>使用后次数清零重置</li>
-                        <li style="color: #f39c12; font-weight: 600;">✓ 可开发票</li>
-                    </ul>
-                    <a href="https://chat.zh-ai.cc" target="_blank" class="btn btn-secondary" style="width: 100%; text-align: center; background-color: #f39c12; color: white; border: none;">购买加油包</a>
-                </div>
             </div>
-        </section>
+        </div>
 
-        <!-- 双会员系列 -->
-        <section class="product-category">
-            <div class="category-header scroll-reveal" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);">
-                <h2>🎁 Claude Pro & GPT Plus 双会员</h2>
-                <p>同时享受Claude Pro和GPT Plus两大平台，日期叠加生效</p>
+        <!-- 双会员套餐内容 -->
+        <div class="pricing-content" id="dual">
+            <div style="text-align: center; margin-bottom: 2rem;">
+                <h2 style="font-size: 2rem; margin-bottom: 0.5rem;">🎁 Claude Pro & GPT Plus 双会员</h2>
+                <p style="color: var(--text-light);">同时享受Claude Pro和GPT Plus两大平台，日期叠加生效</p>
             </div>
-
             <div class="pricing-grid" style="grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));">
                 <!-- 双会员 月卡 -->
                 <div class="pricing-card scroll-reveal">
@@ -439,9 +472,54 @@
                     <a href="https://chat.zh-ai.cc" target="_blank" class="btn btn-primary" style="width: 100%; text-align: center;">立即购买</a>
                 </div>
             </div>
-        </section>
-    </div>
+        </div>
 
+        <!-- 加油包内容 -->
+        <div class="pricing-content" id="addon">
+            <div style="text-align: center; margin-bottom: 2rem;">
+                <h2 style="font-size: 2rem; margin-bottom: 0.5rem;">⛽ 加油包 - 次数重置</h2>
+                <p style="color: var(--text-light);">达到频率限制时使用，立即重置访问次数</p>
+            </div>
+            <div class="pricing-grid" style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); max-width: 800px; margin: 0 auto;">
+                <!-- Claude Pro 加油包 -->
+                <div class="pricing-card addon-card scroll-reveal">
+                    <h3>Pro 加油包</h3>
+                    <div class="price">
+                        ¥8.9
+                        <span class="price-period">/次</span>
+                    </div>
+                    <p style="color: var(--text-dark); margin: 1rem 0; font-weight: 500;">次数重置</p>
+                    <ul class="features-list">
+                        <li>立即重置访问次数</li>
+                        <li>达到频率限制时使用</li>
+                        <li>提示"50次限制"可用</li>
+                        <li>使用后次数清零重置</li>
+                        <li style="color: #f39c12; font-weight: 600;">✓ 可开发票</li>
+                    </ul>
+                    <a href="https://chat.zh-ai.cc" target="_blank" class="btn btn-secondary" style="width: 100%; text-align: center; background-color: #f39c12; color: white; border: none;">购买加油包</a>
+                </div>
+
+                <!-- Claude Max 加油包 -->
+                <div class="pricing-card addon-card scroll-reveal">
+                    <h3>Max 加油包</h3>
+                    <div class="price">
+                        ¥22
+                        <span class="price-period">/次</span>
+                    </div>
+                    <p style="color: var(--text-dark); margin: 1rem 0; font-weight: 500;">次数重置</p>
+                    <ul class="features-list">
+                        <li>立即重置访问次数</li>
+                        <li>达到频率限制时使用</li>
+                        <li>提示"总频率限制"可用</li>
+                        <li>使用后次数清零重置</li>
+                        <li style="color: #f39c12; font-weight: 600;">✓ 可开发票</li>
+                    </ul>
+                    <a href="https://chat.zh-ai.cc" target="_blank" class="btn btn-secondary" style="width: 100%; text-align: center; background-color: #f39c12; color: white; border: none;">购买加油包</a>
+                </div>
+            </div>
+        </div>
+
+    </div>
     <!-- FAQ -->
     <section class="container">
         <h2 class="section-title scroll-reveal">常见问题</h2>

@@ -302,5 +302,37 @@ document.addEventListener('DOMContentLoaded', function() {
 
     window.addEventListener('resize', handleResize);
 
+    // 价格方案标签切换功能
+    const pricingTabs = document.querySelectorAll('.pricing-tab');
+    const pricingContents = document.querySelectorAll('.pricing-content');
+
+    if (pricingTabs.length > 0) {
+        pricingTabs.forEach(tab => {
+            tab.addEventListener('click', function() {
+                // 移除所有active类
+                pricingTabs.forEach(t => t.classList.remove('active'));
+                pricingContents.forEach(c => c.classList.remove('active'));
+
+                // 添加active类到当前标签和对应内容
+                this.classList.add('active');
+                const tabId = this.getAttribute('data-tab');
+                const targetContent = document.getElementById(tabId);
+
+                if (targetContent) {
+                    targetContent.classList.add('active');
+
+                    // 平滑滚动到内容区域
+                    setTimeout(() => {
+                        const yOffset = -100; // 导航栏高度
+                        const element = targetContent;
+                        const y = element.getBoundingClientRect().top + window.pageYOffset + yOffset;
+
+                        window.scrollTo({top: y, behavior: 'smooth'});
+                    }, 100);
+                }
+            });
+        });
+    }
+
     console.log('AI智能助手网站已加载完成！');
 });
