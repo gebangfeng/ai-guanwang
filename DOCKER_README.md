@@ -20,9 +20,8 @@ docker-compose down
 访问: http://localhost:8080
 
 ### 方式二：使用 Docker 命令
-
 ```bash
-# 构建镜像
+# 构建镜像 
 docker build -t chatgpt-claude-website .
 
 # 运行容器
