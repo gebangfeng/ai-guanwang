@@ -1,0 +1,19 @@
+version: '3.8'
+
+services:
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: chatgpt-claude-website
+    ports:
+      - "8080:80"
+    restart: unless-stopped
+    networks:
+      - web-network
+    labels:
+      - "com.example.description=Chatgpt|Claude一站式支持平台"
+
+networks:
+  web-network:
+    driver: bridge
