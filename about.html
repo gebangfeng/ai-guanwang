@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="联系我们 - Chatgpt|Claude一站式支持平台">
+    <title>联系我们 | Chatgpt|Claude一站式支持平台</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .wechat-card {
+            background: linear-gradient(135deg, #07c160 0%, #00d976 100%);
+            color: white;
+            padding: 3rem;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 20px 60px rgba(7, 193, 96, 0.3);
+            margin: 2rem auto;
+            max-width: 600px;
+        }
+        .wechat-icon {
+            font-size: 5rem;
+            margin-bottom: 1rem;
+        }
+        .wechat-id {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin: 1.5rem 0;
+            letter-spacing: 2px;
+            background: white;
+            color: #07c160;
+            padding: 1rem 2rem;
+            border-radius: 12px;
+            display: inline-block;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+        }
+        .copy-btn {
+            background-color: white;
+            color: #07c160;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            margin-top: 1rem;
+            transition: all 0.3s ease;
+        }
+        .copy-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        .contact-methods {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        .contact-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: var(--shadow);
+            transition: all 0.3s ease;
+        }
+        .contact-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+        .contact-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        .qr-placeholder {
+            width: 200px;
+            height: 200px;
+            background: linear-gradient(135deg, #f5f5f5 0%, #e0e0e0 100%);
+            border-radius: 12px;
+            margin: 2rem auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: #999;
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">Chatgpt|Claude一站式支持平台</div>
+            <button class="mobile-menu-toggle" id="mobileMenuToggle">☰</button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">首页</a></li>
+                <li><a href="product.html">产品功能</a></li>
+                <li><a href="pricing.html">价格方案</a></li>
+                <li><a href="about.html" class="active">联系我们</a></li>
+                <li><a href="https://chat.zh-ai.cc" class="btn btn-primary">立即体验</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" style="padding: 4rem 2rem;">
+        <div class="hero-content fade-in">
+            <h1>联系我们</h1>
+            <p>有任何问题或需求，欢迎添加微信咨询</p>
+        </div>
+    </section>
+
+    <!-- 微信联系卡片 -->
+    <section class="container">
+        <div class="wechat-card scroll-reveal">
+            <div class="wechat-icon">💬</div>
+            <h2 style="font-size: 2rem; margin-bottom: 1rem;">添加微信咨询</h2>
+            <p style="font-size: 1.2rem; opacity: 0.95; margin-bottom: 1.5rem;">
+                扫码或搜索微信号添加好友
+            </p>
+
+            <div class="wechat-id" id="wechatId">a2916882935</div>
+
+            <button class="copy-btn" onclick="copyWechatId()">
+                📋 复制微信号
+            </button>
+
+            <!-- <div class="qr-placeholder">
+                <img src="" alt="">
+            </div> -->
+            <p style="font-size: 0.9rem; opacity: 0.9;">
+                ⚠️ 添加微信时请备注"AI订阅"
+            </p>
+        </div>
+
+        <!-- 服务时间和说明 -->
+        <div class="contact-methods">
+            <div class="contact-card scroll-reveal">
+                <div class="contact-icon">⏰</div>
+                <h3>服务时间</h3>
+                <p style="color: var(--text-light); margin-top: 1rem;">
+                    周一至周日<br>
+                    上午 9:00 - 晚上 22:00<br>
+                    <span style="font-size: 0.9rem; color: var(--text-light);">工作时间内快速响应</span>
+                </p>
+            </div>
+
+            <div class="contact-card scroll-reveal">
+                <div class="contact-icon">💡</div>
+                <h3>咨询内容</h3>
+                <p style="color: var(--text-light); margin-top: 1rem;">
+                    • 套餐选择建议<br>
+                    • 购买流程指导<br>
+                    • 使用问题解答<br>
+                    • 发票开具咨询
+                </p>
+            </div>
+
+            <div class="contact-card scroll-reveal">
+                <div class="contact-icon">🎁</div>
+                <h3>专属优惠</h3>
+                <p style="color: var(--text-light); margin-top: 1rem;">
+                    添加微信后<br>
+                    可获取最新优惠活动<br>
+                    <span style="font-size: 0.9rem; color: var(--primary-color); font-weight: 600;">新用户专享折扣</span>
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 常见问题快速解答 -->
+    <section class="features" style="padding: 4rem 0;">
+        <div class="container">
+            <h2 class="section-title scroll-reveal">快速解答</h2>
+            <p class="section-subtitle scroll-reveal">常见问题可在这里找到答案</p>
+
+            <div class="feature-grid">
+                <div class="feature-card scroll-reveal">
+                    <div class="feature-icon">❓</div>
+                    <h3>购买后多久到账？</h3>
+                    <p>支付成功后即时到账，立即可用。如有延迟请联系客服处理。</p>
+                </div>
+
+                <div class="feature-card scroll-reveal">
+                    <div class="feature-icon">💳</div>
+                    <h3>支持哪些支付方式？</h3>
+                    <p>支持支付宝、微信支付等主流支付方式，安全便捷。</p>
+                </div>
+
+                <div class="feature-card scroll-reveal">
+                    <div class="feature-icon">📄</div>
+                    <h3>如何开具发票？</h3>
+                    <p>季卡、年卡等标注"可开发票"的套餐支持开票，联系客服提供开票信息。</p>
+                </div>
+
+                <div class="feature-card scroll-reveal">
+                    <div class="feature-icon">🔄</div>
+                    <h3>可以退款吗？</h3>
+                    <p>虚拟产品一经售出，暂不支持退款。建议先试用日卡体验后再购买长期套餐。</p>
+                </div>
+
+                <div class="feature-card scroll-reveal">
+                    <div class="feature-icon">🆘</div>
+                    <h3>使用遇到问题怎么办？</h3>
+                    <p>添加客服微信，提供详细问题描述和截图，我们将第一时间为您解决。</p>
+                </div>
+
+                <div class="feature-card scroll-reveal">
+                    <div class="feature-icon">⚡</div>
+                    <h3>账号会被封禁吗？</h3>
+                    <p>我们提供稳定的镜像服务，正常使用不会有任何问题，请放心使用。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 平台入口 -->
+    <section class="container" style="margin-bottom: 4rem;">
+        <div class="feature-card scroll-reveal" style="text-align: center; padding: 3rem; background: var(--gradient); color: white;">
+            <h2 style="font-size: 2rem; margin-bottom: 1rem; color: white;">平台使用入口</h2>
+            <p style="font-size: 1.2rem; opacity: 0.95; margin-bottom: 2rem;">
+                访问我们的平台开始使用 GPT Plus 和 Claude Pro
+            </p>
+            <div style="background: white; color: var(--text-dark); padding: 1rem 2rem; border-radius: 12px; display: inline-block; margin-bottom: 1.5rem;">
+                <strong style="font-size: 1.3rem;">https://chat.zh-ai.cc</strong>
+            </div>
+            <br>
+            <a href="https://chat.zh-ai.cc" target="_blank" class="btn btn-large" style="background-color: white; color: #6366f1; margin-top: 1rem;">
+                立即访问平台
+            </a>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta">
+        <h2>开始您的AI之旅</h2>
+        <p>立即添加微信，获取专属优惠和使用指导</p>
+        <a href="#" onclick="scrollToTop(); return false;" class="btn btn-large" style="background-color: white; color: #6366f1;">添加微信咨询</a>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>产品</h3>
+                <ul>
+                    <li><a href="product.html">产品功能</a></li>
+                    <li><a href="pricing.html">价格方案</a></li>
+                    <li><a href="#">使用指南</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h3>服务</h3>
+                <ul>
+                    <li><a href="about.html">联系我们</a></li>
+                    <li><a href="pricing.html">购买套餐</a></li>
+                    <li><a href="#">常见问题</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h3>联系方式</h3>
+                <ul>
+                    <li>微信：f246858247</li>
+                    <li>平台：chat.zh-ai.cc</li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h3>法律</h3>
+                <ul>
+                    <li><a href="#">服务条款</a></li>
+                    <li><a href="#">隐私政策</a></li>
+                    <li><a href="#">退款政策</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2024 Chatgpt|Claude一站式支持平台. 保留所有权利.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        function copyWechatId() {
+            const wechatId = 'f246858247';
+
+            // 创建临时文本区域
+            const textarea = document.createElement('textarea');
+            textarea.value = wechatId;
+            textarea.style.position = 'fixed';
+            textarea.style.opacity = '0';
+            document.body.appendChild(textarea);
+
+            // 选择并复制
+            textarea.select();
+            try {
+                document.execCommand('copy');
+                alert('✅ 微信号已复制：' + wechatId + '\n\n请打开微信添加好友！');
+            } catch (err) {
+                alert('❌ 复制失败，请手动复制：' + wechatId);
+            }
+
+            document.body.removeChild(textarea);
+        }
+
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+    </script>
+</body>
+</html>
