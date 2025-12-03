@@ -471,3 +471,15 @@ body {
     opacity: 1;
     transform: translateY(0);
 }
+
+/* Claude Code 提醒脉冲动画 */
+@keyframes pulse-glow {
+    0%, 100% {
+        box-shadow: 0 0 0 0 rgba(102, 126, 234, 0.4);
+        transform: scale(1);
+    }
+    50% {
+        box-shadow: 0 0 20px 5px rgba(102, 126, 234, 0.2);
+        transform: scale(1.02);
+    }
+}

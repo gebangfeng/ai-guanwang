@@ -334,5 +334,177 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
+    // 检查 URL 中是否有 hash 标签，用于直接跳转到特定标签
+    if (window.location.hash === '#claude-code') {
+        // 延迟执行，确保页面元素已加载
+        setTimeout(() => {
+            activateClaudeCodeTab();
+        }, 300);
+    }
+
     console.log('AI智能助手网站已加载完成！');
 });
+
+// 滚动到闲鱼购买联系方式
+function scrollToXianyu() {
+    const xianyuSection = document.getElementById('xianyuContact');
+    if (xianyuSection) {
+        const yOffset = -80;
+        const y = xianyuSection.getBoundingClientRect().top + window.pageYOffset + yOffset;
+        window.scrollTo({
+            top: y,
+            behavior: 'smooth'
+        });
+    }
+}
+
+// 复制闲鱼购买链接
+function copyXianyuLink() {
+    const linkText = '【闲鱼】https://m.tb.cn/h.SA1qHNu?tk=n5xhfKwxLtF CZ356 「我在闲鱼发布了【【包售后】claude code月卡套餐】」';
+
+    // 尝试使用现代剪贴板API
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(linkText).then(function() {
+            showCopySuccess();
+        }).catch(function(err) {
+            // 如果失败，使用传统方法
+            fallbackCopyText(linkText);
+        });
+    } else {
+        // 使用传统方法
+        fallbackCopyText(linkText);
+    }
+}
+
+// 传统复制方法（兼容旧浏览器）
+function fallbackCopyText(text) {
+    const textarea = document.createElement('textarea');
+    textarea.value = text;
+    textarea.style.position = 'fixed';
+    textarea.style.opacity = '0';
+    textarea.style.top = '0';
+    textarea.style.left = '0';
+    document.body.appendChild(textarea);
+
+    textarea.focus();
+    textarea.select();
+
+    try {
+        const successful = document.execCommand('copy');
+        if (successful) {
+            showCopySuccess();
+        } else {
+            showCopyError();
+        }
+    } catch (err) {
+        showCopyError();
+    }
+
+    document.body.removeChild(textarea);
+}
+
+// 显示复制成功提示
+function showCopySuccess() {
+    // 创建提示元素
+    const toast = document.createElement('div');
+    toast.innerHTML = '✅ 链接已复制！请在浏览器或微信中打开';
+    toast.style.cssText = `
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background: linear-gradient(135deg, #07c160 0%, #00d976 100%);
+        color: white;
+        padding: 1.5rem 2.5rem;
+        border-radius: 12px;
+        font-size: 1.1rem;
+        font-weight: 600;
+        box-shadow: 0 10px 40px rgba(7, 193, 96, 0.4);
+        z-index: 10000;
+        animation: slideInDown 0.3s ease;
+        text-align: center;
+        max-width: 90%;
+    `;
+
+    document.body.appendChild(toast);
+
+    // 3秒后自动消失
+    setTimeout(() => {
+        toast.style.animation = 'slideOutUp 0.3s ease';
+        setTimeout(() => {
+            document.body.removeChild(toast);
+        }, 300);
+    }, 3000);
+
+    // 添加动画样式
+    if (!document.getElementById('toast-animations')) {
+        const style = document.createElement('style');
+        style.id = 'toast-animations';
+        style.textContent = `
+            @keyframes slideInDown {
+                from {
+                    opacity: 0;
+                    transform: translate(-50%, -150%);
+                }
+                to {
+                    opacity: 1;
+                    transform: translate(-50%, -50%);
+                }
+            }
+            @keyframes slideOutUp {
+                from {
+                    opacity: 1;
+                    transform: translate(-50%, -50%);
+                }
+                to {
+                    opacity: 0;
+                    transform: translate(-50%, -150%);
+                }
+            }
+        `;
+        document.head.appendChild(style);
+    }
+}
+
+// 显示复制失败提示
+function showCopyError() {
+    alert('复制失败，请手动复制链接\n\n【闲鱼】https://m.tb.cn/h.SA1qHNu?tk=n5xhfKwxLtF CZ356 「我在闲鱼发布了【【包售后】claude code月卡套餐】」');
+}
+
+// 跳转到价格页面的 Claude Code 标签
+function navigateToClaudeCode(event) {
+    event.preventDefault();
+
+    // 跳转到价格页面
+    window.location.href = 'pricing.html#claude-code';
+
+    // 如果已经在价格页面，则激活 Claude Code 标签
+    setTimeout(() => {
+        if (window.location.pathname.includes('pricing.html')) {
+            activateClaudeCodeTab();
+        }
+    }, 100);
+}
+
+// 激活 Claude Code 标签（用于价格页面）
+function activateClaudeCodeTab() {
+    const claudeCodeTab = document.querySelector('.pricing-tab[data-tab="claude-code"]');
+    const claudeCodeContent = document.getElementById('claude-code');
+
+    if (claudeCodeTab && claudeCodeContent) {
+        // 移除所有活动状态
+        document.querySelectorAll('.pricing-tab').forEach(tab => tab.classList.remove('active'));
+        document.querySelectorAll('.pricing-content').forEach(content => content.classList.remove('active'));
+
+        // 激活 Claude Code 标签
+        claudeCodeTab.classList.add('active');
+        claudeCodeContent.classList.add('active');
+
+        // 滚动到内容区域
+        setTimeout(() => {
+            const yOffset = -100;
+            const y = claudeCodeContent.getBoundingClientRect().top + window.pageYOffset + yOffset;
+            window.scrollTo({ top: y, behavior: 'smooth' });
+        }, 100);
+    }
+}

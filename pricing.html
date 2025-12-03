@@ -135,6 +135,7 @@ var _hmt = _hmt || [];
             <button class="pricing-tab active" data-tab="gpt-plus">🤖 GPT Plus</button>
             <button class="pricing-tab" data-tab="claude-pro">🧠 Claude Pro</button>
             <button class="pricing-tab" data-tab="claude-max">⚡ Claude Max</button>
+            <button class="pricing-tab" data-tab="claude-code">💻 Claude Code</button>
             <button class="pricing-tab" data-tab="dual">🎁 双会员</button>
             <button class="pricing-tab" data-tab="addon">⛽ 加油包</button>
         </div>
@@ -404,6 +405,209 @@ var _hmt = _hmt || [];
                         <li style="color: #f5576c; font-weight: 600;">✓ 可开发票</li>
                     </ul>
                     <a href="https://chat.zh-ai.cc" target="_blank" class="btn btn-primary" style="width: 100%; text-align: center;">立即购买</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Claude Code内容 -->
+        <div class="pricing-content" id="claude-code">
+            <div style="text-align: center; margin-bottom: 2rem;">
+                <h2 style="font-size: 2rem; margin-bottom: 0.5rem;">💻 Claude Code 订阅方案</h2>
+                <p style="color: var(--text-light);">专业开发者的AI编程助手，支持智能代码生成、调试、重构等功能</p>
+            </div>
+
+            <!-- 闲鱼购买提示卡片
+            <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 2.5rem; border-radius: 16px; margin-bottom: 3rem; text-align: center; box-shadow: 0 10px 40px rgba(102, 126, 234, 0.3);">
+                <div style="font-size: 3rem; margin-bottom: 1rem;">🛒</div>
+                <h3 style="font-size: 1.8rem; margin-bottom: 1rem; color: white;">Claude Code 闲鱼专属购买</h3>
+                <p style="font-size: 1.1rem; opacity: 0.95; margin-bottom: 1.5rem;">
+                    为保证最优惠的价格和最灵活的购买方式，Claude Code 订阅服务请前往闲鱼平台购买
+                </p>
+                <div style="background: rgba(255,255,255,0.2); padding: 1.5rem; border-radius: 12px; margin-bottom: 1.5rem; backdrop-filter: blur(10px);">
+                    <p style="font-size: 1rem; margin-bottom: 0.5rem; opacity: 0.9;">快速购买：</p>
+                    <ol style="text-align: left; max-width: 500px; margin: 0 auto; padding-left: 1.5rem;">
+                        <li style="margin: 0.5rem 0;">点击下方"复制购买链接"按钮</li>
+                        <li style="margin: 0.5rem 0;">在浏览器、微信或淘宝中打开链接</li>
+                        <li style="margin: 0.5rem 0;">选择适合您的订阅周期（月卡/季卡/年卡）</li>
+                        <li style="margin: 0.5rem 0;">完成支付后联系客服获取激活码</li>
+                    </ol>
+                </div>
+                <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+                    <button onclick="copyXianyuLink()" class="btn btn-large" style="background-color: #ff6b6b; color: white; border: none; font-weight: 600; padding: 1rem 2.5rem; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.2); cursor: pointer;">
+                        📋 复制购买链接
+                    </button>
+                    <a href="#xianyuContact" onclick="scrollToXianyu(); return false;" class="btn btn-large" style="background-color: white; color: #667eea; font-weight: 600; display: inline-block; padding: 1rem 2.5rem; text-decoration: none; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.2);">
+                        📱 查看其他方式
+                    </a>
+                </div>
+            </div> -->
+
+            <!-- 按量计费方案 -->
+            <div style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); color: white; padding: 2rem; border-radius: 16px; margin-bottom: 3rem; text-align: center;">
+                <div style="font-size: 2.5rem; margin-bottom: 1rem;">💰</div>
+                <h3 style="font-size: 1.5rem; margin-bottom: 1rem; color: white;">按量计费 - 灵活使用</h3>
+                <p style="opacity: 0.95; margin-bottom: 1.5rem;">不限时长 · 0倍率 · 不掺假 · 用多少付多少</p>
+                <div style="background: rgba(255,255,255,0.2); padding: 1.5rem; border-radius: 12px; backdrop-filter: blur(10px); max-width: 600px; margin: 0 auto;">
+                    <div style="font-size: 2.5rem; font-weight: 700; margin-bottom: 0.5rem;">¥0.7</div>
+                    <p style="font-size: 1.2rem; opacity: 0.95;">每 1 美元</p>
+                    <div style="margin-top: 1rem; padding-top: 1rem; border-top: 1px solid rgba(255,255,255,0.3);">
+                        <p style="font-size: 0.9rem; opacity: 0.9;">✓ 无时间限制，随用随充</p>
+                        <p style="font-size: 0.9rem; opacity: 0.9;">✓ 真实计费，0倍率不掺假</p>
+                        <p style="font-size: 0.9rem; opacity: 0.9;">✓ 适合使用频率不固定的用户</p>
+                    </div>
+                </div>
+                <button onclick="scrollToXianyu()" class="btn btn-large" style="background-color: white; color: #00f2fe; border: none; font-weight: 600; margin-top: 1.5rem; padding: 1rem 2.5rem; border-radius: 8px; cursor: pointer;">
+                    立即购买
+                </button>
+
+            </div>
+
+            <!-- 包月套餐 -->
+            <div style="text-align: center; margin-bottom: 2rem;">
+                <h3 style="font-size: 1.5rem; margin-bottom: 0.5rem;">📅 包月套餐</h3>
+                <p style="color: var(--text-light);">固定额度，性价比更高</p>
+            </div>
+
+            <div class="pricing-grid" style="grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));">
+                <!-- 试用月卡 -->
+                <div class="pricing-card scroll-reveal">
+                    <h3>试用月卡</h3>
+                    <div class="price">
+                        ¥270
+                        <span class="price-period">/月</span>
+                    </div>
+                    <p style="color: var(--text-light); margin: 1rem 0;">日限额 30刀 · 闲鱼购买</p>
+                    <ul class="features-list">
+                        <li>每日使用额度：30美元</li>
+                        <li>基于Claude 4.5 Sonnet模型</li>
+                        <li>智能代码生成与补全</li>
+                        <li>代码理解与解释</li>
+                        <li>Bug诊断与修复建议</li>
+                        <li>代码重构优化</li>
+                        <li>技术文档自动生成</li>
+                        <li>支持多种编程语言</li>
+                        <li>VS Code集成使用</li>
+                    </ul>
+                    <a href="#xianyuContact" onclick="scrollToXianyu(); return false;" class="btn btn-secondary" style="width: 100%; text-align: center;">闲鱼购买</a>
+                </div>
+
+                <!-- 初级月卡 -->
+                <div class="pricing-card featured scroll-reveal">
+                    <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 0.5rem; margin: -2.5rem -2.5rem 1rem; border-radius: 12px 12px 0 0; font-weight: 600;">
+                        🌟 推荐
+                    </div>
+                    <h3>初级月卡</h3>
+                    <div class="price">
+                        ¥360
+                        <span class="price-period">/月</span>
+                    </div>
+                    <p style="color: var(--text-light); margin: 1rem 0;">日限额 45刀 · 闲鱼购买</p>
+                    <ul class="features-list">
+                        <li>每日使用额度：45美元</li>
+                        <li>基于Claude 4.5 Sonnet模型</li>
+                        <li>智能代码生成与补全</li>
+                        <li>代码理解与解释</li>
+                        <li>Bug诊断与修复建议</li>
+                        <li>代码重构优化</li>
+                        <li>技术文档自动生成</li>
+                        <li>支持多种编程语言</li>
+                        <li>VS Code集成使用</li>
+                        <li style="color: #667eea; font-weight: 600;">✓ 优先技术支持</li>
+                    </ul>
+                    <a href="#xianyuContact" onclick="scrollToXianyu(); return false;" class="btn btn-primary" style="width: 100%; text-align: center;">闲鱼购买</a>
+                </div>
+
+                <!-- 中级月卡 -->
+                <div class="pricing-card scroll-reveal">
+                    <div style="background: linear-gradient(135deg, #ff6b6b 0%, #ffd93d 100%); color: white; padding: 0.5rem; margin: -2.5rem -2.5rem 1rem; border-radius: 12px 12px 0 0; font-weight: 600;">
+                        🔥 专业版
+                    </div>
+                    <h3>中级月卡</h3>
+                    <div class="price">
+                        ¥495
+                        <span class="price-period">/月</span>
+                    </div>
+                    <p style="color: var(--text-light); margin: 1rem 0;">日限额 55刀 · 闲鱼购买</p>
+                    <ul class="features-list">
+                        <li>每日使用额度：55美元</li>
+                        <li>基于Claude 4.5 Sonnet模型</li>
+                        <li>智能代码生成与补全</li>
+                        <li>代码理解与解释</li>
+                        <li>Bug诊断与修复建议</li>
+                        <li>代码重构优化</li>
+                        <li>技术文档自动生成</li>
+                        <li>支持多种编程语言</li>
+                        <li>VS Code集成使用</li>
+                        <li style="color: #ff6b6b; font-weight: 600;">✓ 优先技术支持</li>
+                        <li style="color: #ff6b6b; font-weight: 600;">✓ 专属客服通道</li>
+                    </ul>
+                    <a href="#xianyuContact" onclick="scrollToXianyu(); return false;" class="btn btn-primary" style="width: 100%; text-align: center;">闲鱼购买</a>
+                </div>
+            </div>
+
+            <!-- 闲鱼购买联系方式 -->
+            <div id="xianyuContact" style="margin-top: 3rem; padding: 2.5rem; background: #f8fafc; border-radius: 16px; border: 2px solid #667eea;">
+                <div style="text-align: center; margin-bottom: 2rem;">
+                    <div style="font-size: 2.5rem; margin-bottom: 1rem;">📱</div>
+                    <h3 style="font-size: 1.8rem; margin-bottom: 0.5rem; color: #667eea;">闲鱼购买方式</h3>
+                    <p style="color: var(--text-light);">推荐：直接复制链接打开闲鱼购买</p>
+                </div>
+
+                <!-- 直接购买链接 - 置顶推荐 -->
+                <div style="background: linear-gradient(135deg, #ff6b6b 0%, #ffd93d 100%); padding: 2.5rem; border-radius: 12px; margin-bottom: 2rem; text-align: center; box-shadow: 0 8px 30px rgba(255, 107, 107, 0.3);">
+                    <div style="font-size: 2.5rem; margin-bottom: 1rem;">🎯</div>
+                    <h4 style="font-size: 1.5rem; margin-bottom: 1rem; color: white;">一键直达闲鱼购买</h4>
+                    <p style="color: white; opacity: 0.95; margin-bottom: 1.5rem;">复制下方链接，在浏览器或微信中打开即可直达商品页面</p>
+
+                    <div style="background: white; padding: 1.5rem; border-radius: 8px; margin-bottom: 1rem;">
+                        <p style="color: var(--text-dark); font-size: 0.9rem; margin-bottom: 0.5rem; font-weight: 500;">闲鱼口令：</p>
+                        <div id="xianyuLink" style="background: #f8fafc; padding: 1rem; border-radius: 6px; border: 2px dashed #667eea; word-break: break-all; font-size: 0.95rem; color: var(--text-dark); line-height: 1.6;">
+                            【闲鱼】https://m.tb.cn/h.SA1qHNu?tk=n5xhfKwxLtF CZ356 「我在闲鱼发布了【【包售后】claude code月卡套餐】」
+                        </div>
+                    </div>
+
+                    <button onclick="copyXianyuLink()" class="btn btn-large" style="background-color: white; color: #ff6b6b; border: none; font-weight: 600; box-shadow: 0 4px 15px rgba(0,0,0,0.2); cursor: pointer; padding: 1rem 2.5rem; border-radius: 8px; font-size: 1.1rem;">
+                        📋 复制链接
+                    </button>
+
+                    <p style="margin-top: 1rem; font-size: 0.9rem; color: white; opacity: 0.9;">
+                        💡 复制后在浏览器、微信或手机淘宝中打开即可
+                    </p>
+                </div>
+
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem;">
+                    <div style="background: white; padding: 2rem; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); text-align: center;">
+                        <div style="font-size: 2rem; margin-bottom: 1rem;">💬</div>
+                        <h4 style="margin-bottom: 1rem; color: var(--text-dark);">微信咨询</h4>
+                        <p style="color: var(--text-light); margin-bottom: 1rem;">添加客服微信获取专属优惠和购买指导</p>
+                        <div style="background: #07c160; color: white; padding: 0.75rem 1.5rem; border-radius: 8px; font-weight: 600; display: inline-block;">
+                            f246858247
+                        </div>
+                    </div>
+
+                    <div style="background: white; padding: 2rem; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); text-align: center;">
+                        <div style="font-size: 2rem; margin-bottom: 1rem;">🔍</div>
+                        <h4 style="margin-bottom: 1rem; color: var(--text-dark);">闲鱼搜索</h4>
+                        <p style="color: var(--text-light); margin-bottom: 1rem;">打开闲鱼APP直接搜索</p>
+                        <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 0.75rem 1.5rem; border-radius: 8px; font-weight: 600; display: inline-block;">
+                            "Claude Code订阅"
+                        </div>
+                    </div>
+
+                    <div style="background: white; padding: 2rem; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); text-align: center;">
+                        <div style="font-size: 2rem; margin-bottom: 1rem;">🎁</div>
+                        <h4 style="margin-bottom: 1rem; color: var(--text-dark);">专属优惠</h4>
+                        <p style="color: var(--text-light); margin-bottom: 1rem;">通过客服购买可获取</p>
+                        <div style="background: #ffd93d; color: #ff6b6b; padding: 0.75rem 1.5rem; border-radius: 8px; font-weight: 600; display: inline-block;">
+                            额外优惠券
+                        </div>
+                    </div>
+                </div>
+
+                <div style="margin-top: 2rem; padding: 1.5rem; background: linear-gradient(135deg, #fff5e6 0%, #ffe4cc 100%); border-radius: 12px; border-left: 4px solid #ff9800;">
+                    <p style="margin: 0; color: var(--text-dark); font-weight: 500;">
+                        ⚠️ 温馨提示：购买前请添加客服微信确认商品和价格，避免遇到假冒店铺。所有Claude Code订阅均通过闲鱼平台担保交易，安全有保障！
+                    </p>
                 </div>
             </div>
         </div>
