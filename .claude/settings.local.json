@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:gpt101.org)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}
