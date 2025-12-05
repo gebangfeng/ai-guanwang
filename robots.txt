@@ -1,0 +1,11 @@
+# robots.txt for aiserve.top
+# 允许所有搜索引擎爬取
+
+User-agent: *
+Allow: /
+
+# 站点地图位置
+Sitemap: https://aiserve.top/sitemap.xml
+
+# 爬取延迟（可选，降低服务器负担）
+Crawl-delay: 1
